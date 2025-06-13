@@ -6,7 +6,7 @@
     <title>Para o Amor da Minha Vida 💖</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* Estilos Românticos em Pastel */
+
         body {
             font-family: 'Arial', cursive;
             margin: 0;
@@ -193,7 +193,7 @@
             justify-content: center;
         }
         
-        /* Advertência de música */
+
         .music-warning {
             position: fixed;
             bottom: 80px;
@@ -213,7 +213,7 @@
     <div class="hearts" id="hearts"></div>
     <div class="twinkling-stars" id="stars"></div>
 
-    <!-- Botão de Controle de Música -->
+
     <div class="music-control">
         <button class="music-btn" id="musicToggle" title="Clique para ativar a música">🎵</button>
         <div class="music-warning" id="musicWarning">Clique aqui para ativar a música de fundo</div>
@@ -262,7 +262,7 @@
         <section>
             <h2>Nossos Momentos ✨</h2>
             <div class="gallery">
-                <!-- Adicione suas fotos aqui (substitua os src) -->
+
                 <img src="foto1.jpg" alt="Nossa foto 1">
                 <img src="foto2.jpg" alt="Nossa foto 2">
                 <img src="foto3.jpg" alt="Nossa foto 3">
@@ -279,7 +279,6 @@
     </footer>
 
     <script>
-// Efeitos visuais (corações e estrelas)
 const heartsContainer = document.getElementById('hearts');
 function createHeart() {
     const heart = document.createElement('div');
@@ -294,7 +293,7 @@ function createHeart() {
 }
 setInterval(createHeart, 300);
 
-// Estrelas cintilantes
+
 const starsContainer = document.getElementById('stars');
 function createStar() {
     const star = document.createElement('div');
@@ -306,22 +305,20 @@ function createStar() {
 }
 for (let i = 0; i < 100; i++) createStar();
 
-// Mostrar aviso após 3 segundos
+
 let warningTimeout = setTimeout(() => {
     if (!audio) musicWarning.style.display = 'block';
 }, 3000);
 
 
-// Sistema de música com arquivo local
 const musicToggle = document.getElementById('musicToggle');
 let audio;
 
 function initAudio() {
     if (!audio) {
-        audio = new Audio('audio/ben.mp3'); // Caminho relativo
+        audio = new Audio('audio/ben.mp3');
         audio.loop = true;
         
-        // Tenta reproduzir (só funciona após interação do usuário)
         audio.play().then(() => {
             musicToggle.innerHTML = '🔊';
         }).catch(error => {
@@ -332,19 +329,17 @@ function initAudio() {
     return audio;
 }
 
-// Controle do botão
+
 musicToggle.addEventListener('click', () => {
     const audio = initAudio();
     audio.paused ? audio.play() : audio.pause();
     musicToggle.innerHTML = audio.paused ? '🎵' : '🔊';
 });
 
-// Tenta inicializar com qualquer clique na página
 document.body.addEventListener('click', () => {
     if (!audio) initAudio();
 }, { once: true });
 
-// Scroll suave
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
         e.preventDefault();
